@@ -1,0 +1,7 @@
+{
+  "name": "skipWhile-vs-filter-in-RxJS",
+  "version": "1.0.0",
+  "dependencies": {
+    "rxjs": "latest"
+  }
+}
