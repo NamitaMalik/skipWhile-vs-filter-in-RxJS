@@ -16,5 +16,4 @@ case. Let's understand the differences.
 Suppose we have a stream of numbers which has numbers in the range 1-100. We only want to print 
 numbers `>= 10`. Here is a small snippet achieving same:
 
-<script src="https://gist.github.com/NamitaMalik/3a8d2c619629b4ca5819c66de89fc835.js"></script>
-
+{% gist 3a8d2c619629b4ca5819c66de89fc835 %}
