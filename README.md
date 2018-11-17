@@ -78,8 +78,8 @@ Uh..what's that? We have the entire range of numbers printed. But why?
 
 As per the [ReactiveX docs](http://reactivex.io/documentation/operators/skipwhile.html):
 
-> "The SkipWhile subscribes to the source Observable, but ignores its emissions until such time as some condition you 
-specify becomes false, at which point SkipWhile begins to mirror the source Observable."
+> " The SkipWhile subscribes to the source Observable, but ignores its emissions until such time as some condition you 
+specify becomes false, at which point SkipWhile begins to mirror the source Observable. "
 
 So in simple terms it means skipWhile operator will ignore the emissions until the specified condition becomes false,
 but after that it will continue to take values from the source observable as is.
@@ -139,3 +139,105 @@ printed.
 
 > Therefore, it means skipWhile drops emissions until condition is met and after that it does not filter anything 
 and mirrors the source observable as is.
+
+Now let's have a look at the filter operator. IMPO, this operator is a bit boring. It does not hold surprises like 
+`skipWhile` operator had.
+
+[ReactiveX Docs](http://reactivex.io/documentation/operators/filter.html) say:
+
+> " The Filter operator filters an Observable by only allowing items through that pass a test that you specify in the 
+form of a predicate function. "
+
+Let's see it doing some action:
+
+```
+const numbersLessThanTen = range(1,20).pipe(filter(num => num < 10));
+numbersLessThanTen.subscribe((number) => {
+    console.log(number);
+});
+```
+
+o/p:
+
+```
+1
+2
+3
+4
+5
+6
+7
+8
+9
+```
+
+That is what we expected i.e. it should filter all the numbers less than 10.
+
+Let's see one more example:
+
+```
+const randomNumbers = interval(1000).pipe(map((num) => {
+    const randomNumber = Math.floor(Math.random() * num);
+    console.log('Random Number Generated', randomNumber);
+    return randomNumber;
+}), filter(num => num > 10));
+randomNumbers.subscribe((number) => {
+    console.log('Number is greater than 10 -->', number);
+});
+```
+
+
+o/p:
+
+```
+Random Number Generated 0
+Random Number Generated 0
+Random Number Generated 1
+Random Number Generated 0
+Random Number Generated 1
+Random Number Generated 4
+Random Number Generated 5
+Random Number Generated 6
+Random Number Generated 0
+Random Number Generated 7
+Random Number Generated 4
+Random Number Generated 9
+Random Number Generated 7
+Random Number Generated 7
+Random Number Generated 11
+Number is greater than 10 --> 11
+Random Number Generated 13
+Number is greater than 10 --> 13
+Random Number Generated 13
+Number is greater than 10 --> 13
+Random Number Generated 3
+Random Number Generated 2
+Random Number Generated 8
+Random Number Generated 8
+Random Number Generated 5
+Random Number Generated 1
+Random Number Generated 22
+Number is greater than 10 --> 22
+Random Number Generated 12
+Number is greater than 10 --> 12
+..............
+..............
+```
+
+So above output simply showcased that filter simply filters the emissions on the basis of condition 
+specified and it filters throughout the lifetime of observable.
+
+Well, this blog was to highlight the difference between these two RxJS operators, a difference if ignored 
+can lead to unexpected results and head banging!
+
+Happy Learning! Happy Sharing!
+
+Follow Me
+---
+[Github](https://github.com/NamitaMalik)
+
+[Twitter](https://twitter.com/namita13_04)
+
+[LinkedIn](https://in.linkedin.com/in/namita-malik-a7885b23)
+
+[More Blogs By Me](https://namitamalik.github.io/)
