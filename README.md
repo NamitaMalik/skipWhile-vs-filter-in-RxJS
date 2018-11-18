@@ -140,6 +140,8 @@ printed.
 > Therefore, it means skipWhile drops emissions until condition is met and after that it does not filter anything 
 and mirrors the source observable as is.
 
+**filter**
+
 Now let's have a look at the filter operator. IMPO, this operator is a bit boring. It does not hold surprises like 
 `skipWhile` operator had.
 
