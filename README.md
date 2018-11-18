@@ -6,7 +6,7 @@ they stop, start a timer and then logout them from the application.
 
 So basically we need to skip performing our action while certain condition is met and when that condition no longer 
 holds true, perform our action. This cycle would repeat. So I was using RxJS to achieve this behavior. I decided to 
-use skipWhile operator but did not fit my use case well and I had to use filter operator instead.
+use `skipWhile` operator but did not fit my use case well and I had to use `filter` operator instead.
 
 There is a basic difference between `skipWhile` and `filter` operator that actually made lot of difference in my 
 case. Let's understand the differences.
