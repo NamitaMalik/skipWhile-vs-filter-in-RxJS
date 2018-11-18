@@ -1,8 +1,8 @@
 # skipWhile vs filter in RxJS
 
 I was working on a scenario where I had to perform an action only when some other actions were not performed. A real 
-life use case could be an auto-logout: don't do anything till the user is performing some action,  
-and if the user stops performing actions, start a timer and then logout from the application.
+life use case could be an auto-logout: don't do anything till the user is performing some action, and if the user stops 
+performing actions, start a timer and then logout from the application.
 
 So basically we need to skip performing our action while certain condition is met and when that condition no longer 
 holds true, perform our action. This cycle would repeat. So I was using RxJS to achieve this behavior. I decided to 
